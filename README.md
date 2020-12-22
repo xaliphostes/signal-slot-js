@@ -2,11 +2,13 @@
 
 [Signal/Slot pattern](https://en.wikipedia.org/wiki/Signals_and_slots) implemented in TypeScript.
 
-No dependency, small (only **4ko** in mignified mode) and efficient library.
+- No dependency, small (only **4ko** in mignified mode) and efficient library.
 
-We try to follow the [Qt](https://doc.qt.io/qt-5/signalsandslots.html) syntax for the connection, i.e., `connect(sender, signal, receiver, slot)`.
+- We try to follow the [Qt](https://doc.qt.io/qt-5/signalsandslots.html) syntax for the connection, i.e., `connect(sender, signal, receiver, slot)`.
 
-Slot can be any method from a class, a setter, an arrow function or any function with any number of arguments.
+- Slot can be any method from a class, a setter, an arrow function or any function with any number of arguments.
+
+- Allows to `connect/disconnect` and `lock/unlock` connections
 
 ## Installation
 ```
