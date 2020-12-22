@@ -1,8 +1,10 @@
-# Signal-Slot library à la Qt
+# Signal-Slot library "à la" Qt
 
 [Signal/Slot pattern](https://en.wikipedia.org/wiki/Signals_and_slots) implemented in TypeScript.
-No dependency, small and efficient library. We try to follow the [Qt](https://doc.qt.io/qt-5/signalsandslots.html) syntax for the connection, i.e., `connect(emitter, signal, receiver, slot)`.
-Only 4Ko for the mignified library.
+
+No dependency, small (only **4ko** in mignified mode) and efficient library.
+
+We try to follow the [Qt](https://doc.qt.io/qt-5/signalsandslots.html) syntax for the connection, i.e., `connect(sender, signal, receiver, slot)`.
 
 Slot can be any method from a class, a setter, an arrow function or any function with any number of arguments.
 
@@ -13,6 +15,7 @@ npm run build
 ```
 
 ## Testing
+Require `node` version > 11
 ```
 npm run test
 ```
