@@ -5,9 +5,9 @@ import {create, connect, emit} from '../src'
           create(this, 'finished')
           connect({sender: this, signal: 'finished', receiver: this, slot: 'done'})
       }
-      start() {
-          console.log(this.name, 'is starting')
-          setTimeout( () => emit(this, 'finished'), 500) 
+      start(sender?: T) {
+          console.log(`${this.name} is starting from sender ${sender?sender.name:'-none-'}`)
+          setTimeout( () => emit(this, 'finished', this), 500) 
       }
       done()  {
           console.log(this.name, 'is done')
