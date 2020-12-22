@@ -33,26 +33,26 @@ import {create, emit, connect} from 'signal-slot'
 
 class Task {
     constructor(public name: string, public ms: number) {
-        create(this, 'finished')
+        create(this, 'finished') // <-----
     }
     
     run() {
         console.log(`Task ${this.name} is running for ${this.ms}ms...`)
-        setTimeout( () => {
-            emit(this, 'finished')
-        }, this.ms) 
+        setTimeout( () => emit(this, 'finished'), this.ms) // <-----
     }
 }
 
 // ----------------------------------------------
 
+// Will be executed when task1 AND task2 are done
 class CombinedLatest {
     private doneTask1 = false
     private doneTask2 = false
 
     constructor(private task1: Task, private task2: Task) {
-        connect({sender: task1, signal: 'finished', receiver: () => this.doneTask(1)})
-        connect({sender: task2, signal: 'finished', receiver: () => this.doneTask(2)})
+        create(this, 'done') // <-----
+        connect({sender: task1, signal: 'finished', receiver: () => this.doneTask(1)}) // <-----
+        connect({sender: task2, signal: 'finished', receiver: () => this.doneTask(2)}) // <-----
     }
 
     doneTask(n: number) {
@@ -65,6 +65,7 @@ class CombinedLatest {
             console.log('doing task combined')
             this.doneTask1 = false
             this.doneTask2 = false
+            emit(this, 'done') // <-----
         }
     }
 }
@@ -75,6 +76,14 @@ const task1 = new Task('task 1', 500)
 const task2 = new Task('task 2', 3000)
 const combined = new CombinedLatest(task1, task2)
 
+connect({                   // <-----
+    sender: combined, 
+    signal: 'done', 
+    receiver: () => console.log('All done!')
+})
+
+// Run the 2 tasks in parallel and trigger combined
+// when both are done
 task1.run()
 task2.run()
 ```
