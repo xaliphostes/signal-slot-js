@@ -1,5 +1,5 @@
 {
-  "name": "signal-slot",
+  "name": "signal-slot-js",
   "version": "1.0.0",
   "description": "Signal-Slot à la Qt",
   "main": "index.js",
