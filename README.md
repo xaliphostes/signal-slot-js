@@ -12,6 +12,11 @@
 
 ## Installation
 ```
+npm i signal-slot-js
+```
+or from the sources
+```
+git checkout git@github.com:xaliphostes/signal-slot-js.git
 npm install
 npm run build
 ```

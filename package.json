@@ -1,8 +1,13 @@
 {
   "name": "signal-slot-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Signal-Slot à la Qt",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xaliphostes/signal-slot-js.git"
+  },
+  "homepage": "https://github.com/xaliphostes/signal-slot-js",
   "scripts": {
     "build": "rimraf ./build && tsc && npm run minify && npm run doc",
     "minify": "uglifyjs --compress --mangle --output ./build/signal-slot.min.js -- ./build/signal-slot.js",
