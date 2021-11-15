@@ -29,7 +29,8 @@ export type Connection = {
 
 /**
  * Dump all the signals and the associated [[Connection]]s attached to the object
- * @param sender 
+ * @param sender
+ *
  */
 export function dump(sender: any) {
     if (!sender._mapSignals) {
